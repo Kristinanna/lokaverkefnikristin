@@ -1,20 +1,59 @@
 <template>
+
   <v-app>
-    <v-app-bar app>
-     <v-appbar-title>Löggi</v-appbar-title>
-     <div>
-      <router-link to="/home">Glæpamenn</router-link> | 
-      <router-link to="criminals"> Málaskrá</router-link> |
-      <router-link to="/tasks">Verkefni</router-link> | 
-     </div>
+    <v-navigation-drawer clipped permanent app>
+      <v-list>
+        
+          <div class="text-center">
+          <v-icon x-large color="black"> mdi-police-badge-outline</v-icon>
+          </div>
+          <v-spacer></v-spacer>
+          <router-link tag="li" to="/criminals">Criminals</router-link>  
+      <router-link tag="li" to="/case"> Crime Cases</router-link> 
+      <router-link tag="li" to="/task">Tasks</router-link> 
+         
+         </v-list>
+      
+      <div class="text-center ">
+      <v-btn absolute bottom tag="button" to="/">Logout</v-btn>
+      </div>
+  
+    </v-navigation-drawer>
+
+      
+    <v-app-bar app dark color="gray">
+      <v-toolbar-title style="cursor: pointer" @click="$router.push('/home')" >
+       Löggi
+      </v-toolbar-title>
  </v-app-bar>
  
     <v-main>
       <router-view/>
     </v-main>
+   
   </v-app>
+
 </template>
 
-<style lang="scss">
 
+<style lang="scss" scoped>
+nav li {
+  color: black;
+  margin-left: 15%;
+  
+padding:12px 10px;
+list-style-type: none;
+font-size: 1.2em;
+font-weight: bold;
+cursor: pointer;
+
+
+
+
+}
 </style>
+
+
+
+
+
