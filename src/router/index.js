@@ -7,13 +7,17 @@ import Task from '../views/Task.vue'
 import Admin from '../views/Admin.vue'
 import Store  from '../store/index'
 import Criminals from '../views/Criminals.vue'
+import Report from '../views/Report.vue'
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/home',
     name: 'Home',
-    component: Home
+    component: Home,
+   
+
+    
   },
   {
     path: '/case',
@@ -41,6 +45,11 @@ component: Admin
     name: 'Criminals',
     component: Criminals
       },
+      {
+        path: '/report',
+        name: 'Report',
+        component: Report
+          },
   
 ]
 
@@ -54,7 +63,7 @@ router.beforeEach((to, from, next) => {
   console.log(to.path)
 
   if(Store.state.userName != 'admin' && to.path == '/admin') {
-    next({name: 'login'})
+    next({ name: 'login'})
   }
   if(Store.state.userName || to.path !== '/login')
   next();

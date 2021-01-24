@@ -34,7 +34,13 @@
   </v-app>
 
 </template>
-
+<script>
+export default {
+  computed: {
+    hide() { return this.$route.path === '/login'}
+  }
+}
+</script>
 
 <style lang="scss" scoped>
 nav li {

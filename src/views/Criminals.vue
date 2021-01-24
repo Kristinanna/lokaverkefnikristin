@@ -7,6 +7,7 @@
     class="elevation-1"
     
   >
+   
     <template v-slot:top>
       <v-toolbar
         flat
@@ -20,6 +21,13 @@
           vertical
           
         ></v-divider>
+          <v-text-field
+        v-model="search"
+        append-icon="mdi-magnify"
+        label="Search"
+        single-line
+        hide-details
+      ></v-text-field>
         <v-spacer></v-spacer>
         <v-dialog
           v-model="dialog"
@@ -40,7 +48,7 @@
           <v-card>
             <v-card-title>
               <span class="headline">{{ formTitle }}</span>
-            
+          
             </v-card-title>
 
             <v-card-text>
@@ -129,13 +137,7 @@
             </v-card-actions>
           </v-card>
         </v-dialog>
-         <v-text-field
-        v-model="search"
-        append-icon="mdi-magnify"
-        label="Search"
-        single-line
-        hide-details
-      ></v-text-field>
+        
         <v-dialog v-model="dialogDelete" max-width="500px">
           <v-card>
             <v-card-title class="headline">Are you sure you want to delete this item?</v-card-title>
@@ -189,7 +191,7 @@ data: () => ({
           text: 'Criminals', value: 'Name',
           align: 'start',
           sortable: false,
-          value: 'Name',
+          
           
         },
         

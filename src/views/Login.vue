@@ -10,10 +10,9 @@
             cols="12"
             md="6"
          >
-         <v-text-field
+         <v-text-field v-model="user"
             label=" Username"
-            
-            @keyup.enter="auth()"
+            @keyup.enter="login()"
             outlined
             ></v-text-field>
             </v-col>
@@ -22,8 +21,8 @@
             cols="12"
             md="6"
           >
-            <v-text-field
-              
+            <v-text-field v-model="password"
+              @keyup.enter="login()"
               label="Password"
               outlined
             ></v-text-field>
@@ -51,11 +50,17 @@ export default {
     return {
       userName: undefined,
     }
+    
   },
   methods: {
     login: function(){
-if(this.user == 'fannar' && this.user == 'blani') {
-  this.msg = 'Welcome';
+if(this.user == "Ívar yfirlögga" && this.password == "MoreSuperPassword1") 
+{
+ alert("welcome admin");
+}
+ if(this.user == "Lárus lögga" && this.password == "SuperPassword1") {
+   this.msg = "Welcome basic user";
+ 
 }else  {
   this.msg = 'invalid password'
 }

@@ -16,7 +16,6 @@
           inset
           vertical
         ></v-divider>
-        <v-spacer></v-spacer>
          <v-text-field
         v-model="search"
         append-icon="mdi-magnify"
@@ -24,6 +23,8 @@
         single-line
         hide-details
       ></v-text-field>
+        <v-spacer></v-spacer>
+        
         <v-dialog
           v-model="dialog"
           max-width="500px"
@@ -103,10 +104,13 @@
                     sm="6"
                     md="4"
                   >
-                    <v-text-field
-                      v-model="editedItem.severness"
-                      label="Severness"
-                    ></v-text-field>
+                    
+                    <v-select v-model="editedItem.severness"
+                    label="Severness"
+                    :items="items">
+                    
+                    </v-select>
+                    
                   </v-col>
                    <v-col
                     cols="12"
@@ -154,7 +158,7 @@
         </v-dialog>
       </v-toolbar>
     </template>
-    <template item.actions="{ item }">
+    <template v-slot:activator="{ item }">
       <v-icon
         small
         class="mr-2"
@@ -208,22 +212,23 @@
       editedItem: {
         crime: '',
         address: '',
-        postalcode: 0,
+        postalcode: '',
         type: '',
-        date: 0,
-        severness: 0,
+        date: '',
+        severness: '',
         notes: '',
       },
       defaultItem: {
         crime: '',
         address: '',
-        postalcode: 0,
+        postalcode: '',
         type: '',
-        date: 0,
-        severness: 0,
+        date: '',
+        severness: '',
         notes: '',
       },
-     
+      items: ['1','2','3','4','5','6','7','8','9','10']
+        
     }),
 
     computed: {
