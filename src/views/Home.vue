@@ -5,7 +5,7 @@
             cols="12"
             md="6"
           >
-    <v-btn to="/criminals">Create new crime case</v-btn>
+    <v-btn to="/case">Create new crime case</v-btn>
           </v-col>
      </v-row>
            <v-row>
@@ -128,16 +128,8 @@
   </div>
 </template>
 
-
-
-
-
-<style>
-
-</style>
-
 <script>
-// @ is an alias to /src
+
 
 
 export default {

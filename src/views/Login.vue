@@ -35,7 +35,7 @@
       <div id="app">
       <v-app id="inspire">
       <div class="text-center">
-      <v-btn to="/home">Login</v-btn>
+      <v-btn type="submit" to="/home">Login</v-btn>
       </div>
     </v-app>
    </div>
@@ -49,6 +49,8 @@ export default {
   data() {
     return {
       userName: undefined,
+      user: undefined,
+      password: undefined,
     }
     
   },
@@ -62,7 +64,7 @@ if(this.user == "Ívar yfirlögga" && this.password == "MoreSuperPassword1")
    this.msg = "Welcome basic user";
  
 }else  {
-  this.msg = 'invalid password'
+  this.msg = 'invalid password';
 }
     },
     auth() {

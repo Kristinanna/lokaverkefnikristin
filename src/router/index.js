@@ -15,6 +15,7 @@ const routes = [
     path: '/home',
     name: 'Home',
     component: Home,
+    requiresAuth: true
    
 
     
@@ -22,33 +23,39 @@ const routes = [
   {
     path: '/case',
     name: 'Case',
-    component: Case
+    component: Case,
+    requiresAuth: true
   },
   {
     path: '/',
     name: 'Login',
-    component: Login
+    component: Login,
+    requiresAuth: true
     
   },
   {
 path: '/task',
 name: 'Task',
-component: Task
+component: Task,
+requiresAuth: true
   },
   {
 path: '/admin',
 name: 'Admin',
-component: Admin
+component: Admin,
+requiresAuth: true
   },
   {
     path: '/criminals',
     name: 'Criminals',
-    component: Criminals
+    component: Criminals,
+    requiresAuth: true
       },
       {
         path: '/report',
         name: 'Report',
-        component: Report
+        component: Report,
+        requiresAuth: true
           },
   
 ]
@@ -62,13 +69,14 @@ const router = new VueRouter({
 router.beforeEach((to, from, next) => {
   console.log(to.path)
 
-  if(Store.state.userName != 'admin' && to.path == '/admin') {
+  if(Store.state.userName != 'Ívar yfirlögga' && to.path == '/login') {
     next({ name: 'login'})
   }
   if(Store.state.userName || to.path !== '/login')
   next();
-  else
-  next({name: 'Login'})
+
+else
+  next({ name: 'Login' })
 
 })
 

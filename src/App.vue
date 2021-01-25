@@ -11,7 +11,7 @@
           <router-link tag="li" to="/criminals">Criminals</router-link>  
       <router-link tag="li" to="/case"> Crime Cases</router-link> 
       <router-link tag="li" to="/task">Tasks</router-link> 
-         
+         <router-link tag="li" to="/admin">Users</router-link>
          </v-list>
       
       <div class="text-center ">
@@ -25,6 +25,7 @@
       <v-toolbar-title style="cursor: pointer" @click="$router.push('/home')" >
        Löggi
       </v-toolbar-title>
+      
  </v-app-bar>
  
     <v-main>

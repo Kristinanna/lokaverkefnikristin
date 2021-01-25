@@ -1,4 +1,5 @@
 <template>
+<div class="case">
   <v-data-table
     :headers="headers"
     :items="cases"
@@ -38,7 +39,7 @@
               v-bind="attrs"
               v-on="on"
             >
-              New Item
+              New Case
             </v-btn>
           </template>
           <v-card>
@@ -117,6 +118,18 @@
                     sm="6"
                     md="4"
                   >
+                  <v-select v-model="editedItem.suspect"
+                    label="Suspect"
+                    :items="suspect">
+                    
+                    </v-select>
+                    
+                  </v-col>
+                   <v-col
+                    cols="12"
+                    sm="6"
+                    md="4"
+                  >
                     <v-text-field
                       v-model="editedItem.notes"
                       label="Notes"
@@ -158,7 +171,7 @@
         </v-dialog>
       </v-toolbar>
     </template>
-    <template v-slot:activator="{ item }">
+    <template >
       <v-icon
         small
         class="mr-2"
@@ -182,7 +195,62 @@
       </v-btn>
     </template>
   </v-data-table>
- 
+  
+ <v-container>
+    <v-row>
+        <v-col>
+            <h3 class="grey--text">Victims</h3>
+        </v-col>
+    </v-row>
+    <v-row>
+        <v-col
+        cols="12"
+        md="8"
+        xs="8"
+        sm="8"
+        >
+        <v-card>
+            <v-card-text>
+                <v-form>
+                    
+                    <v-simple-table>
+      
+        <thead>
+          <tr>
+            <th class="text-left">
+              Name
+            </th>
+            <th class="text-left">
+              Address
+            </th>
+            <th class="text-left">
+              Phone Number
+            </th>
+            <th class="text-left">
+              Age
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            v-for="item in victims"
+            :key="item.name"
+          >
+            <td>{{ item.name }}</td>
+            <td>{{ item.address }}</td>
+            <td>{{ item.phone}}</td>
+            <td>{{ item.age}}</td>
+          </tr>
+        </tbody>
+      
+    </v-simple-table>
+                </v-form>
+            </v-card-text>
+        </v-card>
+        </v-col>
+    </v-row>
+ </v-container>
+    </div>
 </template>
 
 <script>
@@ -191,6 +259,22 @@
       dialog: false,
       dialogDelete: false,
       search: '',
+       victims: [
+        {
+          name: 'Hrógmar Hermanns',
+          address: 'Dúfnahólar 10',
+          phone: '5553212',
+          age: '43'
+        },
+        {
+          name: 'Hallbera Halldórs',
+          address: 'Hafnarbakki 11',
+          phone: '5554312',
+          age: '19'
+        },
+       
+        
+      ],
       headers: [
         {
          
@@ -205,6 +289,7 @@
         { text: 'Date', value: 'date' },
         { text: 'Severness', value: 'severness' },
         { text: 'Notes', value: 'notes' },
+        { text: 'Suspect', value: 'suspect'},
         { text: 'Actions', value: 'actions', sortable: false },
       ],
       cases: [],
@@ -227,13 +312,13 @@
         severness: '',
         notes: '',
       },
-      items: ['1','2','3','4','5','6','7','8','9','10']
-        
+      items: ['1','2','3','4','5','6','7','8','9','10'],
+        suspect: ['Glanni Glæpon']
     }),
 
     computed: {
       formTitle () {
-        return this.editedIndex === -1 ? 'New Item' : 'Edit Item'
+        return this.editedIndex === -1 ? 'New Case' : 'Edit Case'
       },
     },
 
